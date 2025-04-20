@@ -1,0 +1,32 @@
+Notes on sorting:
+
+#Soucre from Google gemining #16 Apr 2025
+
+#Timsort
+Other Efficient Algorithms and Their Big O Notation:
+
+While Timsort is often the default best choice, here are a few other efficient algorithms and their complexities:
+
+Merge Sort:
+How it works: A divide-and-conquer algorithm that divides the list into halves, recursively sorts each half, and then merges the sorted halves.
+Big O Notation: O(n log n) in all cases (best, average, and worst). Space complexity is typically O(n) due to the need for temporary arrays during merging.
+Heap Sort:
+How it works: Uses a binary heap data structure to sort the elements. It inserts all elements into the heap and then repeatedly extracts the maximum (or minimum) element from the heap.
+Big O Notation: O(n log n) in all cases. Heap sort has a space complexity of O(1) if done in-place (though the in-place version can be a bit trickier to implement).
+Quick Sort:
+How it works: Another divide-and-conquer algorithm that picks a 'pivot' element, partitions the list around the pivot (elements smaller than the pivot go before it, and larger elements go after), and then recursively sorts the sub-lists.
+Big O Notation: O(n log n) in the average case. However, its worst-case time complexity is O(n^2) (which can occur if the pivot selection is consistently poor). With good pivot selection strategies (like choosing a random pivot), the average-case performance is excellent. Space complexity is typically O(log n) on average due to the recursive calls (can be O(n) in the worst case).
+Which one to choose?
+
+For general use, especially in Python, you're often already using Timsort! Python's built-in sorted() function and the .sort() method for lists use Timsort under the hood. This is because it performs very well on a wide variety of real-world data.
+If stability is a strict requirement, Timsort or Merge Sort are good choices.
+Heap Sort can be useful when in-place sorting with guaranteed O(n log n) time complexity is desired and stability isn't an issue.
+While Quick Sort has a great average-case performance, its potential O(n^2) worst-case can be a concern in some critical applications. However, variations like randomized Quick Sort mitigate this risk significantly.
+So, in most practical scenarios for sorting a list of numbers in Python, you're already benefiting from the efficiency of Timsort!
+
+Java 21 uses Timsort for sorting:
+List objects using Collections.sort()
+Arrays of objects (Object[]) using Arrays.sort()
+Java 21 uses Dual-Pivot Quicksort for sorting:
+Arrays of primitive types (int[], float[], double[], etc.) using Arrays.sort
+
