@@ -18,6 +18,6 @@ class TestSolution(TestCase):
     def test_max_vowels_3(self):
         sol = Solution()
         ts ="zpuerktejfp"
-        self.assertEqual(sol.maxVowels(ts, 1), 2)
+        self.assertEqual(sol.maxVowels(ts, 1), 1)
 
 
