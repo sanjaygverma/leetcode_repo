@@ -28,5 +28,8 @@ class Solution:
 
             m_vwl_cnt = max(m_vwl_cnt, c_vwl_cnt)
 
+            if m_vwl_cnt == k:
+                break
+
         return m_vwl_cnt
 
