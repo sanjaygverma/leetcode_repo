@@ -28,21 +28,25 @@ class Solution:
 
         n_col_cntr = len(grid)
         ret_cnt = 0
-        for i in range(len(grid)):
+        cols_vals = []
+
+        for i in range(n_col_cntr):
             lst_row = grid[i]
 
             col_cntr = 0  # tracks cnt of all cols iteration to grid[i] len
             lst_col = list()
 
-            for j in range(len(grid[i])):
+            if len(cols_vals) == 0:
+                for j in range(len(grid[i])):
+                    lst_col = list()
+                    while col_cntr < n_col_cntr:
+                        lst_col.append(grid[col_cntr][j])
+                        col_cntr += 1
 
-                while col_cntr < n_col_cntr:
-                    lst_col.append(grid[col_cntr][j])
-                    col_cntr += 1
-
-                if lst_row == lst_col:
-                    ret_cnt += 1
-                col_cntr = 0
-                lst_col.clear()
-
+                    if lst_row == lst_col:
+                        ret_cnt += 1
+                    col_cntr = 0
+                    cols_vals.append(lst_col)
+            else:
+                ret_cnt = ret_cnt + cols_vals.count(lst_row)
         return ret_cnt
