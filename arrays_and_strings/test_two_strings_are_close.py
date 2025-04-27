@@ -13,7 +13,7 @@ class TestSolution(TestCase):
 
     def test_close_strings_3(self):
         sol = Solution()
-        self.assertEqual(sol.closeStrings("cabbba", "abbccc"), False)
+        self.assertEqual(sol.closeStrings("cabbba", "abbccc"), True)
 
     def test_close_strings_4(self):
         sol = Solution()

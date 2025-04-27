@@ -44,28 +44,15 @@ class Solution:
 
     def closeStrings(self, word1: str, word2: str) -> bool:
 
+        ret = False
+
         if len(word1) != len(word2):
-            return False
+            return ret
 
-        di_1 = {}
-        _ = [di_1.update({word1[i]: di_1.get(word1[i], 0) + 1}) for i in range(len(word1))]
-        di_2 = {}
-        _ = [di_2.update({word2[i]: di_2.get(word2[i], 0) + 1}) for i in range(len(word2))]
+        chr_counts_w1 = Counter(word1)
+        chr_counts_w2 = Counter(word2)
 
-        # s1 = set(sorted(word1))
-        # s2 = set(sorted(word2))
+        if chr_counts_w1.keys() != chr_counts_w2.keys():
+            return ret
 
-        s1 = sorted((di_1.keys()))
-        s2 = sorted((di_2.keys()))
-
-        if s1 != s2:
-            return False
-
-        s1 = sorted(list(di_1.values()))
-        s2 = sorted(list(di_2.values()))
-
-        return s1 == s2
-
-
-
-
+        return sorted(chr_counts_w1.values()) == sorted(chr_counts_w2.values())
