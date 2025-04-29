@@ -13,3 +13,8 @@ class TestSolution(TestCase):
         nums = [-3,2,-3,4,2]
         self.assertEqual(5, sol.minStartValue(nums))
 
+
+    def test_min_start_value_3(self):
+        sol = Solution()
+        nums = [2,3,5,-5,-1] #
+        self.assertEqual(1, sol.minStartValue(nums))
